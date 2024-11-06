@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+# File Upload Feature - Frontend Guide
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+### Prerequisites
+Ensure you have:
+- The backend server configured with endpoints for file uploads and attachment data retrieval.
+- `API_BASE_URL` updated with the correct backend server URL, typically `http://localhost:5000`.
 
-### `npm start`
+### Table of Contents
+1. Getting Started
+2. Installing Dependencies
+3. Creating the Upload Component
+4. File Upload Functionality
+5. Fetching Attachments
+6. Integrating Components
+7. Example Usage
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Getting Started
+1. Clone the repository or navigate to your frontend directory.
+2. Ensure the backend server is running to accept file uploads and handle requests.
 
-### `npm test`
+### Installing Dependencies
+Install `axios` to manage HTTP requests. This enables communication between your React frontend and Express backend.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Creating the Upload Component
+Create a new React component called `FileUpload` to handle file selection and uploads. This component will:
+- Allow multiple file selection.
+- Trigger a file upload when the user initiates it.
+- Send selected files to the backend, which stores them in the server and database.
 
-### `npm run build`
+### File Upload Functionality
+The `FileUpload` component should:
+- Enable multi-file selection with an input field.
+- Collect selected files and send them to the backend using `FormData`.
+- Clear selected files upon successful upload.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Fetching Attachments
+To show information on uploaded attachments (e.g., file count and total size), create a function to fetch attachment data. This function:
+- Retrieves attachment count and total size from the backend.
+- Displays this information for a specific task by calling the backend API endpoint for attachments.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Integrating Components
+Combine the `FileUpload` and `AttachmentList` components in a main component (e.g., `TaskDetail`). This setup:
+- Displays attachment data.
+- Provides file upload functionality within a single, cohesive interface.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Example Usage
+In your main app, use the `TaskDetail` component and pass a specific `taskId`. This setup allows users to upload multiple files associated with a task and view the total number and size of all attachments uploaded.
 
-### `npm run eject`
+### Final Notes
+- Ensure your backend server is running, and the routes are functioning as expected.
+- Use Postman or cURL to test each backend endpoint before connecting to the frontend.
+- Customize error handling and messaging in the frontend to improve the user experience.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
